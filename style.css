@@ -1,0 +1,138 @@
+
+	body {
+		margin: 0 auto;
+		padding: 0;
+		font-size: .94rem;
+		box-sizing: border-box;
+		color: #333333;
+		font-family: Arial;
+	}
+
+	h1 {
+		font-size: 2.5rem;
+		text-align: center;
+	}
+	p {
+		margin: 0;
+		padding: 0;
+	}
+
+	div {
+		position: relative;
+	}
+
+/*ABOUT ME SECTION*/
+	.about-container {
+		width: 47%;
+		margin: 0 auto;
+		margin-bottom: 4em;
+		padding-top: 3em;
+		line-height: 1.5em;
+		text-align: center;
+	}
+	.florette {
+		margin: .5em 0 .5em;
+	}
+	.span{
+		width: 70%;
+		margin: 1em auto;
+		text-align: center;
+	}
+/*EVENTS SECTION*/
+	.performance-container {
+		position: sticky;
+		display: inline;
+	}
+
+	#list-container {
+		margin: 1em auto 1em;
+		width: 500px;
+		display: flex;
+		flex-direction: column;
+		justify-content: space-around;
+	}
+
+	.datesAndLocations, .piecesAndDescripts {
+		margin: 0 2em 0;
+	}
+
+	.datesAndLocations {
+		display: flex;
+		justify-content: space-between;
+		margin-bottom: .5em;
+		font-weight: bold;
+	}
+	.piecesAndDescripts {
+		display: flex;
+		justify-content: space-between;
+	}
+	.past-performances{
+		margin-bottom: 5em;
+	}
+
+	.dates, .locations, .pieces, .descriptions {
+		display: inline-block;
+	}
+
+	.descriptions, .locations {
+		width: 16em;
+		text-align: right;
+	}
+
+	.pieces {
+		width: 12em;
+	}
+/*WORK SECTION*/
+	.work-container {
+		margin: 0 auto;
+		margin-bottom: 3em;
+		width: 60%;
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: space-around;
+	}
+	.work-header{
+		margin-bottom: 2em;
+		text-align: center;
+		width: 100%;
+	}
+
+	.work-title{
+		margin: 0 auto;
+		margin-bottom: 1em;
+		text-align: center;
+	}
+	.work-title:hover {
+		padding: .1em .4em .2em;
+		cursor: pointer;
+		font-size: 2rem;
+	}
+	.work-info{
+		display: none;
+		margin:  0 auto;
+	    margin-bottom: 3em;
+	    line-height: 1.5em;
+	    width: 60%;
+	}
+	div#widget-container{
+		margin: 0 auto;
+		margin-bottom: 3em;
+		width: 50%;
+	}
+	.work-example-other{
+		text-align: center;
+		margin-bottom: 3em;
+	}
+/*MEDIA QUERY FOR WORK SECTION*/
+	@media screen and (max-width: 600px) {
+	  .work-info {width: 70%;}
+		}
+	@media screen and (max-width: 900px) {
+	  .work-info-5 {width: 80%;}
+	}
+	@media screen and (max-width: 700px) {
+	  .work-info-5 {width: 90%;}
+	}
+
+
+
