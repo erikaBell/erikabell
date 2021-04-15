@@ -16,6 +16,7 @@
  workTitle1.addEventListener("click", function(){
 	workInfo1.style.display === "none" ? workInfo1.style.display = "block" : workInfo1.style.display = "none"
 
+	//TODO: refactor, make DRY
 	if (workInfoArray[1].style.display === 'block') {
 		workInfoArray[1].style.display = 'none'
 		workInfo1.style.display = "block"

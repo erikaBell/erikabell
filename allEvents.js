@@ -1,3 +1,5 @@
+// TODO: refactor one JS page maintains all performances 
+
 var public_spreadsheet_url = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vSOnp2BPxtloqa6zrYoyjiS9fJY0Lqq6Bc4yVaUSBdGONBsjZSQXgaScGwdLqhzcYMeS30x_CqHYTp_/pub?gid=435615926&single=true&output=csv';
 
       function init() {
@@ -20,9 +22,9 @@ var public_spreadsheet_url = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vS
          return allYears.indexOf(item) >= index;
      });
 
-  // CHOOSE YEAR BASED OFF INDEX OF ITEM IN UNIQURE YEARS VARIABLE
+ // CHOOSE YEAR BASED OFF INDEX OF ITEM IN UNIQURE YEARS VARIABLE
        const allData = data.map(data => {
-         if (data.year === uniqueYears[3]) {
+         if (data.year === uniqueYears[0]) {
           return (
             `<div class="past-performances"> 
               <div class="datesAndLocations"> 

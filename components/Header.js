@@ -31,7 +31,7 @@ headerTemplate.innerHTML = `
 		</nav>	
 	</header>
 	`
-
+	
 class Header extends HTMLElement {
 	constructor(){
 		super()
