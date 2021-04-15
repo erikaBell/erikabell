@@ -8,11 +8,6 @@
   
   <link rel="stylesheet" href=style.css>
   <!-- TODO: won't need performances Nav? will make all one static page -->
-  <script src="./components/PerformancesNav.js" type="text/javascript" defer></script>
-  <script src="./performances/performance-main.js" type="text/javascript" defer></script>    
-  <script src='./papaparse.js' type="text/javascript" defer></script>
-  <script src="./components/Header.js" type="text/javascript" defer></script>
-  <script src="./components/Footer.js" type="text/javascript" defer></script>
 </head>
 
 <html>
@@ -21,11 +16,15 @@
 
     <div class="body-container">
       <performances-component>
-        <span slot="performance-year">2021</span>
+        <span slot="performance-year"></span>
       </performances-component>
       <div id="list-container"></div>
 
     <footer-component></footer-component>
 
   </body>
+  <script src='./papaparse.js' type="text/javascript" defer></script>
+  <script src="./allEvents.js" type="text/javascript" defer></script>
+  <script src="./components/Header.js" type="text/javascript" defer></script>
+  <script src="./components/Footer.js" type="text/javascript" defer></script>
 </html>

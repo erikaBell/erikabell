@@ -24,7 +24,7 @@ headerTemplate.innerHTML = `
 		<nav>
 			<ul>
 				<li><a href="index.html">ERIKA BELL</a></li>
-				<li><a href="performance-main.html">EVENTS</a></li>
+				<li><a href="allEvents.html">EVENTS</a></li>
 				<li><a href="work.html">WORK</a></li>
 				<li><a href="mailto:erika.h.m.bell@gmail.com" target="_self">CONTACT</a></li>
 			</ul>	
