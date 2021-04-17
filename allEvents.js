@@ -14,7 +14,6 @@ const public_spreadsheet_url = 'https://docs.google.com/spreadsheets/d/e/2PACX-1
 
 function renderEvents(results) {
   const data = results.data
-  console.log(data)
   
 
   document.getElementById("list-container").innerHTML = allData.join(" ")
@@ -49,6 +48,18 @@ function renderPerformances(data){
   </div>`
     )
   }
+}
+
+
+
+function buttonClick(){
+
+}
+
+function yearNavigation(year){
+	year.forEach(y => {
+	`<li><button type="button" onClick="${buttonClick()}">${y}</button></li>`
+}
 }
 
 // Removed performances na JS and pasted into allEvents js 
@@ -109,14 +120,12 @@ performancesNavTemplate.innerHTML = `
 		</div>
 	
 	  <ul>
-       <li><a href="./performance-main.html">2021</a></li>
-       <li><a href="./2020.html">2020</a></li>
-       <li><a href="./2019.html">2019</a></li>
-       <li><a href="./2018.html">2018</a></li>
-       <li><a href="./2017.html">2017</a></li>
+       ${yearNavigation(data.year)}
       </ul>
 `
-//TODO: for each DATE ... create: button ... ${
+//TODO: for each DATE ... create: button ... 
+
+
 
 class PerformancesNav extends HTMLElement {
 	constructor(){
