@@ -1,9 +1,4 @@
-// import React from 'react'
-// import Header from './Header'
-// import papaparse from './papaparse.js'
-// import {Switch, Route, Link} from 'react-router-dom'
-
-var public_spreadsheet_url = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vSOnp2BPxtloqa6zrYoyjiS9fJY0Lqq6Bc4yVaUSBdGONBsjZSQXgaScGwdLqhzcYMeS30x_CqHYTp_/pub?gid=1983379765&single=true&output=csv';
+var public_spreadsheet_url = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vSOnp2BPxtloqa6zrYoyjiS9fJY0Lqq6Bc4yVaUSBdGONBsjZSQXgaScGwdLqhzcYMeS30x_CqHYTp_/pub?gid=435615926&single=true&output=csv';
 
       function init() {
         Papa.parse(public_spreadsheet_url, {
@@ -13,57 +8,42 @@ var public_spreadsheet_url = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vS
         })
       }
 
-      window.addEventListener('DOMContentLoaded', init)
+    window.addEventListener('DOMContentLoaded', init)
+      
+    function showInfo(results) {
+      var archiveBlock = document.getElementById('list-container');
+      const data = results.data
+      
+	  const allYears = data.map(data => data.year)
+	  
+      const uniqueYears = allYears.filter(function(item, index){
+         return allYears.indexOf(item) >= index;
+     });
 
-
-      function showInfo(results) {
-		const data = results.data
-		
-
-		for (value of data){
-			//if YEAR is clicked .... render that YEAR's info to the dom
-
-		}
-
-        const allData = data.map(data => 
-		  `<div class="list-container">
-				<div class="upcoming-performances"> 
-					<div class="upcoming-datesAndLocations"> 
-						<p class="upcoming-dates"> ${data.date}</p> 
-						<p class="upcoming-locations"> ${data.location}</p>
-					</div>
-					<div class="upcoming-piecesAndDescripts">
-						<p class="upcoming-pieces">
-						${data.type === 'Composition' ? data.premiere + " "+`<i>${data.piece}</i>` : data.piece}
-						</p>
-						<p class="upcoming-descriptions"> ${data.description}</p>
-					</div>
-					<br>
-				</div>
-			</div>`)
+  // CHOOSE YEAR BASED OFF INDEX OF ITEM IN UNIQURE YEARS VARIABLE
+       const allData = data.map(data => {
+         if (data.year === uniqueYears[4]) {
+          return (
+            `<div class="past-performances"> 
+              <div class="datesAndLocations"> 
+                <p class="dates"> ${data.date}</p> 
+                <p class="locations"> ${data.location}</p>
+              </div>
+              <div class="piecesAndDescripts">
+                <p class="pieces">
+                  ${data.type === 'Composition' ? data.premiere + " "+`<i>${data.piece}</i>` : data.piece}
+                </p>
+                <p class="descriptions"> ${data.description}</p>
+              </div>
+            <br>
+          </div>`
+            )
+         }
+       })
 
       document.getElementById("list-container").innerHTML = allData.join(" ")
-      }
 
-	  function renderData(value){
-		return (
-			`<div class="list-container">
-				<div class="upcoming-performances"> 
-					<div class="upcoming-datesAndLocations"> 
-						<p class="upcoming-dates"> ${data.date}</p> 
-						<p class="upcoming-locations"> ${data.location}</p>
-					</div>
-					<div class="upcoming-piecesAndDescripts">
-						<p class="upcoming-pieces">
-						${data.type === 'Composition' ? data.premiere + " "+`<i>${data.piece}</i>` : data.piece}
-						</p>
-						<p class="upcoming-descriptions"> ${data.description}</p>
-					</div>
-					<br>
-				</div>
-			</div>`
-		)
-	  }
+      }
 
 
 // // TODO: refactor one JS page maintains all performances 
