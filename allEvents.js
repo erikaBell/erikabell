@@ -22,9 +22,38 @@ function showInfo(results) {
 	const eachYear = new Set(allYearsArr)
 
 	yearNavigation(eachYear)
-	//   updateUI(data)
-
 	const btns = document.querySelectorAll('.year-btn')
+
+	/**
+	 * 				FIXXXXX
+	 */
+
+	//Initial Render
+	const update = data.map(data => {
+		if (data.year === '2021') {
+		return (
+			`<div class="past-performances"> 
+			<div class="datesAndLocations"> 
+				<p class="dates"> ${data.date}</p> 
+				<p class="locations"> ${data.location}</p>
+			</div>
+			<div class="piecesAndDescripts">
+				<p class="pieces">
+				${data.type === 'Composition' ? data.premiere + " "+`<i>${data.piece}</i>` : data.piece}
+				</p>
+				<p class="descriptions"> ${data.description}</p>
+			</div>
+			<br>
+			</div>`
+		)
+		}
+  	})
+	document.getElementById("list-container").innerHTML = update.join(" ")
+	const backgroundYear = document.querySelector('.background-year')
+	backgroundYear.textContent = '2021'
+	/**
+	 * 				FIXXXXX
+	 */
 
 	btnClick(btns, data)
 }
@@ -36,7 +65,7 @@ function showInfo(results) {
 * @return {html} renders onto DOM
 */
 function updateUI(data, btnYear){
-  const update = data.map(data => {
+	const update = data.map(data => {
     if (data.year === btnYear) {
       return (
         `<div class="past-performances"> 
@@ -58,19 +87,7 @@ function updateUI(data, btnYear){
   document.getElementById("list-container").innerHTML = update.join(" ")
 }
 
-
-//TODO: Years will become buttons, this is for the functions to know which data to render
-//TODO: make the 'clicked' years at top automated, so i don't need to add on each year as time passes.    Make Year in background (pink big font) also automated to change
-
-// if attribute data-year === Year in data, render information to DOM
-// on click also change BACKGROUND year date, big and in pink 
- 
- 
-	// if(e.getAttribute('data-year') === year){
-	// 	backgroundYear.textContent = year
-	// 	updateUI(data)
-	// }
- //TODO: CREATE TOGGLE FOR FONT STAYING BIG ON CLICK , AND TRANSITION EASE OUT AFTER
+//TODO: CREATE TOGGLE FOR FONT STAYING BIG ON CLICK , AND TRANSITION EASE OUT AFTER
 /**
  * @param {array} buttons - 
  * @param {object} data - 
@@ -98,59 +115,3 @@ function yearNavigation(eachYear, allBtns){
 		yearNav.insertAdjacentHTML('beforeend', btn)
 	}
 }
-	
-const performancesNavTemplate = document.createElement('template')
-	performancesNavTemplate.innerHTML = `
-		<style>
-			* {
-				margin: 0;
-				padding: 0;
-				box-sizing: border-box;
-			}
-			.year-nav{
-				margin-bottom: 8em;
-				font-weight: bold;
-				list-style-type: none;
-				display: flex;
-				justify-content: space-around;
-			}
-			a {
-				text-decoration: none;
-				color: #333333;
-				
-			}
-			a:hover {
-				font-size: 2rem;
-			}
-			.performance-container {
-				position: fixed;
-				display: inline;
-				left: 2em;
-				z-index: -10
-			}
-			.performances-title {
-				color: rgba(255, 255, 255, 0.49);
-				-webkit-text-stroke-width: 1px;
-				-webkit-text-stroke-color: #333333;
-				font-size: 15rem;
-				overflow: hidden;
-			}
-			::slotted(span){
-				display: inline;
-				position: relative;
-				font-size: 6em;
-				color: pink;
-				-webkit-text-stroke-width: 1px;
-				-webkit-text-stroke-color: #333333;
-			}
-		</style>
-		<div class='performance-container'>
-			<h1 class="performances-title">Events</h1>
-			<h3 id="year">
-			 <slot name="performance-year">default</slot>
-			</h3>
-		</div>
-	`
-
-
-// //TODO: for each DATE ... create: button ... 
