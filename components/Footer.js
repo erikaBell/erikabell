@@ -15,7 +15,7 @@ footerTemplate.innerHTML = `
 		a {
 			text-decoration: none;
 			color: #333333;
-			
+  			transition: font-size 0.5s;
 		}
 		a:hover {
 			font-size: 2rem;
