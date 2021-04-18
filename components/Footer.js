@@ -15,7 +15,7 @@ footerTemplate.innerHTML = `
 		a {
 			text-decoration: none;
 			color: #333333;
-			
+  			transition: font-size 0.5s;
 		}
 		a:hover {
 			font-size: 2rem;
@@ -24,16 +24,25 @@ footerTemplate.innerHTML = `
 	<footer>
 		<nav>
 			<ul>
-				<li><a href="https://www.instagram.com/erikabell/?hl=en">instagram</a></li>
-				<li><a href="https://open.spotify.com/artist/3XIXVH00m25QAt8yGZZhuj?si=ROFCuKCjQ9mpFt2MiubJcw">spotify</a></li>
-				<li><a href="https://erikabell.bandcamp.com/">bandcamp</a></li>
-				<li><a href="https://soundcloud.com/erikabell">soundcloud</a></li>
-				<li><a href="mailto:erika.h.m.bell@gmail.com" target="_self">contact</a></li>
+				<li><a href="https://www.instagram.com/erikabell/?hl=en" target="_blank" rel="noreferrer noopener">
+					instagram
+				</a></li>
+				<li><a href="https://open.spotify.com/artist/3XIXVH00m25QAt8yGZZhuj?si=ROFCuKCjQ9mpFt2MiubJcw" target="_blank" rel="noreferrer noopener">
+					spotify
+				</a></li>
+				<li><a href="https://erikabell.bandcamp.com/" target="_blank" rel="noreferrer noopener">
+					bandcamp
+				</a></li>
+				<li><a href="https://soundcloud.com/erikabell" target="_blank" rel="noreferrer noopener">
+					soundcloud
+				</a></li>
+				<li><a href="mailto:erika.h.m.bell@gmail.com" target="_self" rel="noreferrer noopener">
+					contact
+				</a></li>
 			</ul>	
 		</nav>	
 	</footer>
 `
-
 
 class Footer extends HTMLElement {
 	constructor(){

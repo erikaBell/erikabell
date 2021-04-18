@@ -7,11 +7,7 @@
   <meta name="Erika Bell" content="Erika Bell's Events">
   
   <link rel="stylesheet" href=style.css>
-  <script src="./components/PerformancesNav.js" type="text/javascript" defer></script>
-  <script src="./2021.js" type="text/javascript" defer></script>    
-  <script src='./papaparse.js' type="text/javascript" defer></script>
-  <script src="./components/Header.js" type="text/javascript" defer></script>
-  <script src="./components/Footer.js" type="text/javascript" defer></script>
+  <!-- TODO: won't need performances Nav? will make all one static page -->
 </head>
 
 <html>
@@ -19,13 +15,18 @@
     <header-component></header-component>
 
     <div class="body-container">
-      <performances-component>
-        <span slot="performance-year"></span>
-      </performances-component>
-      <div id="list-container"></div>
+      <ul class='year-nav'></ul>
+      <h1 class="events-header">
+        Events
+        <span class='background-year'></span>
+      </h1>
+    <div id="list-container"></div>
 
     <footer-component></footer-component>
 
-    <script type="module" src="./main.js"></script>
   </body>
+  <script src='./papaparse.js' type="text/javascript" defer></script>
+  <script src="./allEvents.js" type="text/javascript" defer></script>
+  <script src="./components/Header.js" type="text/javascript" defer></script>
+  <script src="./components/Footer.js" type="text/javascript" defer></script>
 </html>
