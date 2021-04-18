@@ -33,6 +33,14 @@ button:hover {
   font-size: 2rem;
 }
 
+button:focus {
+  font-size: 2rem;
+  transition: font-size 0.5s;
+  border: 3px solid pink;
+  border-radius: 4px;
+  outline: pink;
+}
+
 /*ABOUT ME SECTION*/
 .about-container {
   width: 47%;
