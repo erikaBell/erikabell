@@ -149,6 +149,20 @@ EVENTS SECTION
   text-align: center;
   width: 100%;
 }
+.italics {
+  font-style: italic;
+}
+
+.featured-excerpts {
+  color: rgba(255, 255, 255, 0.49);
+  font-size: 15rem;
+  position: fixed;
+  top: -10%;
+  left: 2rem;
+  z-index: -500;
+  -webkit-text-stroke-width: 1px;
+  -webkit-text-stroke-color: #333333;
+}
 
 .work-title {
   margin: 0 auto;
