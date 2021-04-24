@@ -33,6 +33,14 @@ button:hover {
   font-size: 2rem;
 }
 
+button:focus {
+  font-size: 2rem;
+  transition: font-size 0.5s;
+  outline: none;
+  border: 3px solid pink;
+  border-radius: 3px;
+}
+
 /*ABOUT ME SECTION*/
 .about-container {
   width: 47%;
@@ -65,7 +73,8 @@ EVENTS SECTION
   justify-content: space-around;
 }
 .events-header,
-.background-year .events-header {
+.background-year .events-header,
+.excerpts-header {
   color: rgba(255, 255, 255, 0.49);
   font-size: 15rem;
   position: fixed;
@@ -135,19 +144,29 @@ EVENTS SECTION
 .pieces {
   width: 12em;
 }
-/*WORK SECTION*/
+/*MUSIC SECTION*/
 .work-container {
-  margin: 0 auto;
-  margin-bottom: 3em;
-  width: 60%;
+  margin-top: 8em;
+  width: 100%;
+}
+
+.releases-container {
+  margin-bottom: 3.5em;
+  width: 100%;
   display: flex;
-  flex-wrap: wrap;
   justify-content: space-around;
 }
-.work-header {
-  margin-bottom: 2em;
-  text-align: center;
+.album-container {
+  display: inline-block;
+  width: 20%;
+}
+.album-container img {
+  object-fit: contain;
   width: 100%;
+}
+.music-other-container {
+  margin: 5em 5em;
+  display: block;
 }
 
 .work-title {
@@ -167,15 +186,7 @@ EVENTS SECTION
   line-height: 1.5em;
   width: 60%;
 }
-div#widget-container {
-  margin: 0 auto;
-  margin-bottom: 3em;
-  width: 50%;
-}
-.work-example-other {
-  text-align: center;
-  margin-bottom: 3em;
-}
+
 /*MEDIA QUERY FOR WORK SECTION*/
 @media screen and (max-width: 600px) {
   .work-info {
