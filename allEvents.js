@@ -17,20 +17,28 @@ window.addEventListener('DOMContentLoaded', init)
 */
 function showInfo(results) {
 	const data = results.data
+
+	//Retrieves each instance of year
 	const allYearsArr = []
 	const dataMap = data.map(d => {allYearsArr.push(d.year)})
-	const eachYear = new Set(allYearsArr)
 
+	// Removes any duplicates of a year, i.e. [2021, 2021, 2021] => [2021]
+	const eachYear = new Set(allYearsArr)
+	// Pulls out first year to use for initial DOM load  
+	const pullOutYears = eachYear.values()
+	const mostCurrentYear = pullOutYears.next().value
+
+	// Creates and loads individual buttons for each existing year
 	yearNavigation(eachYear)
 	const btns = document.querySelectorAll('.year-btn')
 
 	/**
-	 * 				FIXXXXX
-	 */
-
-	//Initial Render
+	* Initial render of event info
+	* @param {object} data - public_spreadsheet_url 
+	* @return {html} - of events related to most current year
+	*/
 	const update = data.map(data => {
-		if (data.year === '2021') {
+		if (data.year === mostCurrentYear) {
 		return (
 			`<div class="past-performances"> 
 			<div class="datesAndLocations"> 
@@ -45,46 +53,16 @@ function showInfo(results) {
 			</div>
 			<br>
 			</div>`
-		)
-		}
-  	})
+		)}
+	})
+	// Appends events to DOM
 	document.getElementById("list-container").innerHTML = update.join(" ")
+
+	// Appends most current year
 	const backgroundYear = document.querySelector('.background-year')
-	backgroundYear.textContent = '2021'
-	/**
-	 * 				FIXXXXX
-	 */
+	backgroundYear.textContent = mostCurrentYear
 
 	btnClick(btns, data)
-}
-
-//TODO: figure out how to make initial render of _most recent year_ and then all othe
-/**
-* The updateUI function updates based on which year is clicked in yearNav
-* @param {array of objects} data - based on year
-* @return {html} renders onto DOM
-*/
-function updateUI(data, btnYear){
-	const update = data.map(data => {
-    if (data.year === btnYear) {
-      return (
-        `<div class="past-performances"> 
-          <div class="datesAndLocations"> 
-            <p class="dates"> ${data.date}</p> 
-            <p class="locations"> ${data.location}</p>
-          </div>
-          <div class="piecesAndDescripts">
-            <p class="pieces">
-              ${data.type === 'Composition' ? data.premiere + " "+`<i>${data.piece}</i>` : data.piece}
-            </p>
-            <p class="descriptions"> ${data.description}</p>
-          </div>
-        <br>
-        </div>`
-      )
-    }
-  })
-  document.getElementById("list-container").innerHTML = update.join(" ")
 }
 
 //TODO: CREATE TOGGLE FOR FONT STAYING BIG ON CLICK , AND TRANSITION EASE OUT AFTER
@@ -114,4 +92,33 @@ function yearNavigation(eachYear, allBtns){
 
 		yearNav.insertAdjacentHTML('beforeend', btn)
 	}
+}
+
+//TODO: figure out how to make initial render of _most recent year_ and then all others on year-btn click
+/**
+* The updateUI function updates based on which year is clicked in yearNav
+* @param {array of objects} data - based on year
+* @return {html} renders onto DOM
+*/
+function updateUI(data, btnYear){
+	const update = data.map(data => {
+    if (data.year === btnYear) {
+      return (
+        `<div class="past-performances"> 
+          <div class="datesAndLocations"> 
+            <p class="dates"> ${data.date}</p> 
+            <p class="locations"> ${data.location}</p>
+          </div>
+          <div class="piecesAndDescripts">
+            <p class="pieces">
+              ${data.type === 'Composition' ? data.premiere + " "+`<i>${data.piece}</i>` : data.piece}
+            </p>
+            <p class="descriptions"> ${data.description}</p>
+          </div>
+        <br>
+        </div>`
+      )
+    }
+  })
+  document.getElementById("list-container").innerHTML = update.join(" ")
 }
